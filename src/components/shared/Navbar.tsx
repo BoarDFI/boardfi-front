@@ -47,7 +47,8 @@ const Navbar = () => {
         <div
           className={cn(
             "flex items-center gap-2 ",
-            isMobileMenuOpen && "relative z-40 border-b-primary pb-4 border-b"
+            isMobileMenuOpen &&
+              "relative z-40 border-b-primary pb-4 max-[480px]:pb-2 border-b"
           )}
         >
           <img src={logo} alt="logo" />
