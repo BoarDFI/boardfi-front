@@ -1,8 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Poppins:wght@400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Order */
+
 html,
-body{
-    @apply bg-primary
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  @apply bg-primary;
+}
+
+p,
+a,
+span,
+button {
+  font-family: "DM Sans", sans-serif;
+  @apply text-paragraph;
+}
+
+p {
+  @apply text-base;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @apply text-white;
+}
+
+h2 {
+  @apply text-2xl;
+}
+
+span {
+  @apply text-sm;
+}
+
+button {
+  @apply text-base;
 }

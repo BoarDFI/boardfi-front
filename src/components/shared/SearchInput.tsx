@@ -112,7 +112,7 @@ const SearchInput = ({
                           {item.symbol}
                         </p>
                       </div>
-                      <span className="text-white text-sm">$83980123.1231</span>
+                      <span className="text-white">$83980123.1231</span>
                     </div>
                   </div>
                 </div>

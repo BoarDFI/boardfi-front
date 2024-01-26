@@ -10,19 +10,19 @@ const Navbar = () => {
   const [active, setActive] = useState(false);
   return (
     <div className="flex w-full justify-between items-center">
-      <div className="flex items-center gap-4">
+      <div className={cn("flex items-center gap-10", active && " gap-3")}>
         <div className="flex items-center gap-2">
           <img src={logo} alt="logo" />
           <span className="text-xl text-white">BoarDFI</span>
         </div>
-        <div className="flex gap-3">
+        <div className="flex gap-6">
           {routes.map((item) => (
-            <p
-              className="text-white hover:text-secondary transition-all"
-              key={item.name}
+            <Link
+              className="hover:text-secondary transition-all"
+              to={item.path}
             >
-              <Link to={item.path}>{item.name}</Link>
-            </p>
+              {item.name}
+            </Link>
           ))}
         </div>
       </div>
