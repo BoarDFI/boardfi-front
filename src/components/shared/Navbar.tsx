@@ -1,41 +1,124 @@
 import { logo } from "@/assets/images";
 import SearchInput from "./SearchInput";
 import { Button } from "../ui/button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { mockData, routes } from "@/constants";
 import { Link } from "react-router-dom";
+import { useSpring, animated, config } from "react-spring";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
-  return (
-    <div className="flex w-full justify-between items-center py-6">
-      <div className={cn("flex items-center gap-10", active && " gap-3")}>
-        <div className="flex items-center gap-2">
-          <img src={logo} alt="logo" />
-          <span className="text-xl text-white">BoarDFI</span>
-        </div>
-        <div className="flex gap-6">
-          {routes.map((item) => (
-            <Link
-              className="hover:text-secondary transition-all"
-              to={item.path}
-            >
-              {item.name}
-            </Link>
-          ))}
-        </div>
-      </div>
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1150);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const menuAnimation = useSpring({
+    transform:
+      isMobile && isMobileMenuOpen ? "translateY(0%)" : "translateY(-100%)",
+    config: config.slow,
+  });
+
+  const buttonAnimation = useSpring({
+    rotate: isMobileMenuOpen ? 90 : 0,
+  });
+
+  const AnimatedButton = animated(Button);
+
+  const renderMenu = () => (
+    <animated.div
+      style={isMobile ? menuAnimation : {}}
+      className={cn(
+        "flex gap-6",
+        isMobile &&
+          "flex-col fixed top-0 w-full px-3 gap-3 right-0 h-full overflow-hidden bg-gradient-to-t from-primary to-secondary p-4"
+      )}
+    >
       <div
         className={cn(
-          "flex w-full gap-7 items-center",
-          active ? "max-w-[740px]" : "max-w-[600px]"
+          "flex gap-8 items-center",
+          isMobile && "gap-2 flex-col absolute top-[12%] container"
         )}
       >
-        <SearchInput active={active} setActive={setActive} data={mockData} />
-        <Button>Connect with your wallet</Button>
+        {routes.map((item, index) => (
+          <Link
+            key={index}
+            className="block py-3 transition-all w-full hover:bg-button hover:pl-4 hover:rounded hover:text-white hover:shadow-primary"
+            to={item.path}
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            {item.name}
+          </Link>
+        ))}
+        {isMobile && <Button className="w-full mt-4">Connect wallet</Button>}
       </div>
-    </div>
+    </animated.div>
+  );
+
+  return (
+    <>
+      <div className="flex w-full justify-between items-center py-6">
+        <div className="flex items-center gap-10">
+          <div
+            className={cn(
+              "flex items-center gap-2",
+              isMobileMenuOpen && "relative z-40"
+            )}
+          >
+            <img src={logo} alt="logo" />
+            <span className="text-xl text-white">BoarDFI</span>
+          </div>
+          {renderMenu()}
+        </div>
+        <div
+          className={cn(
+            "flex w-full gap-7 items-center max-w-[560px]",
+            isMobile && "justify-end max-w-full gap-2"
+          )}
+        >
+          {!isMobile && (
+            <SearchInput
+              active={active}
+              setActive={setActive}
+              data={mockData}
+            />
+          )}
+          <AnimatedButton
+            className={cn(
+              "relative z-40",
+              isMobile &&
+                "bg-transparent hover:bg-transparent hover:shadow-transparent transition-none"
+            )}
+            style={{
+              transform: buttonAnimation.rotate.to(
+                (rotate) => `rotate(${rotate}deg)`
+              ),
+            }}
+            onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {!isMobile ? (
+              "Connect to wallet"
+            ) : isMobileMenuOpen ? (
+              <FaTimes />
+            ) : (
+              <FaBars />
+            )}
+          </AnimatedButton>
+        </div>
+      </div>
+      {isMobile && (
+        <SearchInput active={active} setActive={setActive} data={mockData} />
+      )}
+    </>
   );
 };
 

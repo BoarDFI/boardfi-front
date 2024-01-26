@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import SearchIcon from "@/assets/icons/search-icon.svg?react";
 import XIcon from "@/assets/icons/x-icon.svg?react";
 import { solana } from "@/assets/images";
+import { useSpring, animated } from "react-spring";
 
 const SearchInput = ({
   active,
@@ -16,9 +17,14 @@ const SearchInput = ({
   setActive: (active: boolean) => void;
   data: { id: number; name: string; symbol: string }[];
 }) => {
-  const inputRef = useRef<HTMLInputElement>(null);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  const dropdownAnimation = useSpring({
+    from: { transform: "translateY(-100%)" },
+    to: { transform: "translateY(0%)" },
+  });
 
   const adjustDropdownHeight = () => {
     if (dropdownRef.current && containerRef.current) {
@@ -100,9 +106,13 @@ const SearchInput = ({
 
         {active && (
           <>
-            <div ref={dropdownRef} className="absolute top-full w-full px-4">
+            <animated.div
+              style={dropdownAnimation}
+              ref={dropdownRef}
+              className="absolute top-full w-full px-4"
+            >
               {data.map((item) => (
-                <div key={item.id} className="">
+                <div key={item.id}>
                   <div className="flex items-center gap-2 mt-2 pb-2 w-full">
                     <img src={solana} alt={item.name} />
                     <div className="flex items-center justify-between w-full">
@@ -117,7 +127,7 @@ const SearchInput = ({
                   </div>
                 </div>
               ))}
-            </div>
+            </animated.div>
             <SearchIcon className="left-2 absolute fill-accent-gray" />
           </>
         )}
