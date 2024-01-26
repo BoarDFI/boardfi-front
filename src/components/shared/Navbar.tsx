@@ -46,13 +46,14 @@ const Navbar = () => {
       <div
         className={cn(
           "flex gap-8 items-center",
-          isMobile && "gap-2 flex-col absolute top-[12%] container"
+          isMobile &&
+            "gap-1 flex-col absolute max-[480px]:top-[15%] top-[12%] left-0  container"
         )}
       >
         {routes.map((item, index) => (
           <Link
             key={index}
-            className="block py-3 transition-all w-full hover:bg-button hover:pl-4 hover:rounded hover:text-white hover:shadow-primary"
+            className="block py-2 transition-all w-full hover:bg-button hover:pl-4 hover:rounded hover:text-white hover:shadow-primary"
             to={item.path}
             onClick={() => setMobileMenuOpen(false)}
           >
@@ -103,7 +104,7 @@ const Navbar = () => {
                 (rotate) => `rotate(${rotate}deg)`
               ),
             }}
-            onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={() => isMobile && setMobileMenuOpen(!isMobileMenuOpen)}
           >
             {!isMobile ? (
               "Connect to wallet"
