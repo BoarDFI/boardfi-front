@@ -2,36 +2,23 @@ import { Input } from "@/components/ui/input.tsx";
 import { Button } from "@/components/ui/button.tsx";
 import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
-import { searchIcon, xIcon } from "@/assets/icons";
+
+import SearchIcon from "@/assets/icons/search-icon.svg?react";
+import XIcon from "@/assets/icons/x-icon.svg?react";
+import { solana } from "@/assets/images";
 
 const SearchInput = ({
   active,
   setActive,
+  data,
 }: {
   active: boolean;
   setActive: (active: boolean) => void;
+  data: { id: number; name: string; symbol: string }[];
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-
-  const mockData = [
-    {
-      id: 1,
-      name: "Bitcoin",
-      symbol: "BTC",
-    },
-    {
-      id: 2,
-      name: "Ethereum",
-      symbol: "ETH",
-    },
-    {
-      id: 3,
-      name: "Solana",
-      symbol: "SOL",
-    },
-  ];
 
   const adjustDropdownHeight = () => {
     if (dropdownRef.current && containerRef.current) {
@@ -41,7 +28,7 @@ const SearchInput = ({
       const styleElement = document.createElement("style");
       styleElement.textContent = `
         .custom-before-height::before {
-          height: ${totalHeight}px;
+          height: ${totalHeight + 16}px;
         }
 
       `;
@@ -70,13 +57,13 @@ const SearchInput = ({
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("mouseup", handleClickOutside);
     document.addEventListener("keydown", handleEscapeKey);
 
     adjustDropdownHeight();
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("mouseup", handleClickOutside);
       document.removeEventListener("keydown", handleEscapeKey);
     };
   }, [active, setActive]);
@@ -95,38 +82,44 @@ const SearchInput = ({
           onFocus={() => setActive(true)}
           className={cn(
             "rounded-r-none border-none",
-            active && "placeholder:text-white"
+            active && "placeholder:text-accent-gray pl-10"
           )}
           onInput={() => setActive(true)}
           placeholder="Find your favourite crypto"
         />
         <Button
           className={cn(
-            "rounded-none px-4",
+            "rounded-none px-4 transition-none",
             active &&
               "bg-transparent hover:bg-transparent hover:shadow-transparent"
           )}
+          onClick={() => setActive(!active)}
         >
-          <img src={active ? xIcon : searchIcon} alt="" />
+          {active ? <XIcon /> : <SearchIcon className="fill-white" />}
         </Button>
 
         {active && (
-          <div ref={dropdownRef} className="absolute top-full w-full px-4">
-            {mockData.map((item) => (
-              <div key={item.id} className="">
-                <div className="flex items-center gap-2 mt-2 pb-4 w-full">
-                  <div className="w-8 h-8 bg-gray-200 rounded-full"></div>
-                  <div className="flex items-center justify-between w-full">
-                    <div className="flex items-end gap-2">
-                      <p className="text-sm text-white">{item.name}</p>
-                      <p className="text-accent-gray text-xs">{item.symbol}</p>
+          <>
+            <div ref={dropdownRef} className="absolute top-full w-full px-4">
+              {data.map((item) => (
+                <div key={item.id} className="">
+                  <div className="flex items-center gap-2 mt-2 pb-2 w-full">
+                    <img src={solana} alt={item.name} />
+                    <div className="flex items-center justify-between w-full">
+                      <div className="flex items-end gap-2">
+                        <p className="text-sm text-white">{item.name}</p>
+                        <p className="text-accent-gray text-xs">
+                          {item.symbol}
+                        </p>
+                      </div>
+                      <span className="text-white text-sm">$83980123.1231</span>
                     </div>
-                    <span className="text-white text-sm">$83980123.1231</span>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+            <SearchIcon className="left-2 absolute fill-accent-gray" />
+          </>
         )}
       </div>
     </div>
