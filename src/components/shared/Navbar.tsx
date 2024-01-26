@@ -64,7 +64,11 @@ const Navbar = () => {
         {routes.map((item, index) => (
           <Link
             key={index}
-            className="block py-2 transition-all w-full hover:bg-button hover:pl-4 hover:rounded hover:text-white hover:shadow-primary"
+            className={cn(
+              "block py-2 transition-all w-full ",
+              isMobile &&
+                "hover:bg-button hover:pl-4 hover:rounded hover:text-white hover:shadow-primary"
+            )}
             to={item.path}
             onClick={() => setMobileMenuOpen(false)}
           >
