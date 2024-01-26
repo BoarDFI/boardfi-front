@@ -43,15 +43,17 @@ const Navbar = () => {
           "flex-col fixed top-0 w-full px-3 gap-3 right-0 h-full overflow-hidden bg-gradient-to-t from-primary to-secondary p-4"
       )}
     >
-      <div
-        className={cn(
-          "flex items-center gap-2",
-          isMobileMenuOpen && "relative z-40"
-        )}
-      >
-        <img src={logo} alt="logo" />
-        <span className="text-xl text-white">BoarDFI</span>
-      </div>
+      {isMobile && (
+        <div
+          className={cn(
+            "flex items-center gap-2",
+            isMobileMenuOpen && "relative z-40"
+          )}
+        >
+          <img src={logo} alt="logo" />
+          <span className="text-xl text-white">BoarDFI</span>
+        </div>
+      )}
       <div
         className={cn(
           "flex gap-8 items-center",
