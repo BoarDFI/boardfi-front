@@ -46,8 +46,8 @@ const Navbar = () => {
       {isMobile && (
         <div
           className={cn(
-            "flex items-center gap-2",
-            isMobileMenuOpen && "relative z-40"
+            "flex items-center gap-2 ",
+            isMobileMenuOpen && "relative z-40 border-b-primary pb-4 border-b"
           )}
         >
           <img src={logo} alt="logo" />
