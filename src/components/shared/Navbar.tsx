@@ -45,6 +45,15 @@ const Navbar = () => {
     >
       <div
         className={cn(
+          "flex items-center gap-2",
+          isMobileMenuOpen && "relative z-40"
+        )}
+      >
+        <img src={logo} alt="logo" />
+        <span className="text-xl text-white">BoarDFI</span>
+      </div>
+      <div
+        className={cn(
           "flex gap-8 items-center",
           isMobile &&
             "gap-1 flex-col absolute max-[480px]:top-[15%] top-[12%] left-0  container"
@@ -69,12 +78,7 @@ const Navbar = () => {
     <>
       <div className="flex w-full justify-between items-center py-6">
         <div className="flex items-center gap-10">
-          <div
-            className={cn(
-              "flex items-center gap-2",
-              isMobileMenuOpen && "relative z-40"
-            )}
-          >
+          <div className={cn("flex items-center gap-2")}>
             <img src={logo} alt="logo" />
             <span className="text-xl text-white">BoarDFI</span>
           </div>
