@@ -1,14 +1,9 @@
-import Navbar from "@/components/shared/Navbar";
-
 function HomePage() {
   return (
     <>
-      <h1>Components</h1>
-      <div className="flex">
-        <Navbar />
-      </div>
+      <h1 className="text-3xl mt-10">Hello BoardFI</h1>
     </>
   );
 }
-``
+``;
 export default HomePage;

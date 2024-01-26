@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const [active, setActive] = useState(false);
   return (
-    <div className="flex w-full justify-between items-center">
+    <div className="flex w-full justify-between items-center py-6">
       <div className={cn("flex items-center gap-10", active && " gap-3")}>
         <div className="flex items-center gap-2">
           <img src={logo} alt="logo" />
