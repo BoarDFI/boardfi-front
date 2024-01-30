@@ -1,8 +1,10 @@
+import { generateColumns } from "@/components/CryptoTable/Columns";
+import { DataTable } from "@/components/CryptoTable/Table";
+import { mockCryptos } from "@/constants";
+
 function HomePage() {
   return (
-    <>
-      <h1 className="text-3xl mt-10">Hello BoardFI</h1>
-    </>
+    <DataTable columns={generateColumns(mockCryptos[0])} data={mockCryptos} />
   );
 }
 
