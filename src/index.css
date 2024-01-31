@@ -46,3 +46,11 @@ span {
 button {
   @apply text-base;
 }
+
+.card {
+  background:
+    linear-gradient(#050520 0 0) padding-box,
+    linear-gradient(180deg, #0a3a62, #050520) border-box;
+  mask-composite: exclude;
+  box-shadow: 0px -19px 105px 1px rgba(21, 116, 195, 0.3);
+}
