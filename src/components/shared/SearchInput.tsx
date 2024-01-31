@@ -2,7 +2,6 @@ import { Input } from "@/components/ui/input.tsx";
 import { Button } from "@/components/ui/button.tsx";
 import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
-
 import SearchIcon from "@/assets/icons/search-icon.svg?react";
 import XIcon from "@/assets/icons/x-icon.svg?react";
 import { solana } from "@/assets/images";
@@ -95,7 +94,7 @@ const SearchInput = ({
         />
         <Button
           className={cn(
-            "rounded-none px-4 transition-none",
+            "rounded-none px-4 transition-none h-full py-2",
             active &&
               "bg-transparent hover:bg-transparent hover:shadow-transparent"
           )}
