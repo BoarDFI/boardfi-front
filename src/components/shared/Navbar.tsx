@@ -40,7 +40,7 @@ const Navbar = () => {
       className={cn(
         "flex gap-6",
         isMobile &&
-          "flex-col fixed top-0 w-full px-3 gap-3 right-0 h-full overflow-hidden bg-gradient-to-t from-primary to-secondary p-4"
+          "flex-col fixed top-0 w-full px-3 gap-3 right-0 h-full z-10 overflow-hidden bg-gradient-to-t from-primary to-secondary p-4",
       )}
     >
       {isMobile && (
@@ -48,7 +48,7 @@ const Navbar = () => {
           className={cn(
             "flex items-center gap-2 ",
             isMobileMenuOpen &&
-              "relative z-40 border-b-primary pb-4 max-[480px]:pb-2 border-b"
+              "relative z-40 border-b-primary pb-4 max-[480px]:pb-2 border-b",
           )}
         >
           <img src={logo} alt="logo" />
@@ -59,7 +59,7 @@ const Navbar = () => {
         className={cn(
           "flex gap-8 items-center",
           isMobile &&
-            "gap-1 flex-col absolute max-[480px]:top-[15%] top-[12%] left-0  container"
+            "gap-1 flex-col absolute max-[480px]:top-[15%] top-[12%] left-0  container",
         )}
       >
         {routes.map((item, index) => (
@@ -68,7 +68,7 @@ const Navbar = () => {
             className={cn(
               "block py-2 transition-all w-full ",
               isMobile &&
-                "hover:bg-button hover:pl-4 hover:rounded hover:text-white hover:shadow-primary"
+                "hover:bg-button hover:pl-4 hover:rounded hover:text-white hover:shadow-primary",
             )}
             to={item.path}
             onClick={() => setMobileMenuOpen(false)}
@@ -76,13 +76,15 @@ const Navbar = () => {
             {item.name}
           </Link>
         ))}
-        {isMobile && <Button className="w-full mt-4">Connect wallet</Button>}
+        {isMobile && (
+          <Button className="w-full mt-4 h-full">Connect wallet</Button>
+        )}
       </div>
     </animated.div>
   );
 
   return (
-    <>
+    <div className={cn("pb-10")}>
       <div className="flex w-full justify-between items-center py-6">
         <div className="flex items-center gap-10">
           <div className={cn("flex items-center gap-2")}>
@@ -94,7 +96,7 @@ const Navbar = () => {
         <div
           className={cn(
             "flex w-full gap-7 items-center max-w-[560px]",
-            isMobile && "justify-end max-w-full gap-2"
+            isMobile && "justify-end max-w-full gap-2",
           )}
         >
           {!isMobile && (
@@ -106,13 +108,13 @@ const Navbar = () => {
           )}
           <AnimatedButton
             className={cn(
-              "relative z-40",
+              "relative z-40 h-full",
               isMobile &&
-                "bg-transparent hover:bg-transparent hover:shadow-transparent transition-none"
+                "bg-transparent hover:bg-transparent hover:shadow-transparent transition-none",
             )}
             style={{
               transform: buttonAnimation.rotate.to(
-                (rotate) => `rotate(${rotate}deg)`
+                (rotate) => `rotate(${rotate}deg)`,
               ),
             }}
             onClick={() => isMobile && setMobileMenuOpen(!isMobileMenuOpen)}
@@ -130,7 +132,7 @@ const Navbar = () => {
       {isMobile && (
         <SearchInput active={active} setActive={setActive} data={mockData} />
       )}
-    </>
+    </div>
   );
 };
 
