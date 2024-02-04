@@ -1,8 +1,10 @@
 import InfoIcon from "@/assets/icons/info-icon.svg?react";
 import FlameIcon from "@/assets/icons/flame-icon.svg?react";
 import NextIcon from "@/assets/icons/next-icon.svg?react";
+import CryptocurrenciesRate from "../CryptocurrienciesRate/CryptocurrenciesRate";
+import { Link } from "react-router-dom";
 
-const Card = ({ title, src }: { title: string; src: string }) => {
+const Card = ({ title, href }: { title: string; href: string }) => {
   return (
     <div className="">
       <div className="grid grid-cols-2 grid-flow-col gap-4">
@@ -15,15 +17,17 @@ const Card = ({ title, src }: { title: string; src: string }) => {
         <div className="row-end row-span-2 flex justify-end items-center">
           <h3 className="flex items-center">
             See More
-            <a href="https://beeg.com/">
+            <Link to="https://beeg.com/">
               <NextIcon className="ml-1 cursor-pointer"></NextIcon>
-            </a>
+            </Link>
           </h3>
         </div>
       </div>
       <div className="card relative border-transparent border-solid border-4 rounded-xl min-h-64 w-full overflow-visible">
         <FlameIcon className="absolute w-34 h-49 top-[-25px] left-[-18px] flex-shrink-0 object-cover" />
-        <div className="p-10">{/* Todo dane */}</div>
+        <div className="p-10">
+          <CryptocurrenciesRate></CryptocurrenciesRate>
+        </div>
       </div>
     </div>
   );
