@@ -7,14 +7,14 @@ import { Link } from "react-router-dom";
 const Card = ({ title, href }: { title: string; href: string }) => {
   return (
     <div className="">
-      <div className="grid grid-cols-2 grid-flow-col gap-4">
-        <div className="row-start row-span-2">
+      <div className="grid grid-cols-4 grid-flow-col auto-cols-max gap-4">
+        <div className="row-start flex col-span-3">
           <h2 className="mx-10 text-2xl mb-2 flex items-center font-bold text-paragraph">
             {title}
             <InfoIcon className="ml-2 cursor-pointer"></InfoIcon>
           </h2>
         </div>
-        <div className="row-end row-span-2 flex justify-end items-center">
+        <div className="row-end col-span-1 flex justify-end items-center">
           <h3 className="flex items-center">
             See More
             <Link to="https://beeg.com/">

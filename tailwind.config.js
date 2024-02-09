@@ -10,6 +10,7 @@ module.exports = {
   prefix: "",
   theme: {
     container: {
+      maxWidth: 'none',
       center: true,
       padding: "2rem",
       screens: {
@@ -43,6 +44,7 @@ module.exports = {
         "accent-red": "#CB4343",
         paragraph: "#E2E2E2",
         "accent-gray": "#A7A7A7",
+        "dirty-white": "#E6E6E6",
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
