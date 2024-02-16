@@ -58,7 +58,7 @@ button {
 @media (min-width: 1280px) {
   .container {
     max-width: none;
-    padding-left: 5rem;
-    padding-right: 5rem;
+    padding-left: 8rem;
+    padding-right: 8rem;
   }
 }
