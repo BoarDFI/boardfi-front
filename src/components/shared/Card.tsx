@@ -31,7 +31,7 @@ const Card = ({
       <div className="card relative border-transparent border-solid border-4 rounded-xl min-h-64 w-full overflow-visible">
         <Icon
           type={cryptoCurrenciesRateCardView.icon}
-          className="absolute w-34 h-49 top-[-25px] left-[-18px] flex-shrink-0 object-cover"
+          className="absolute w-34 h-49 top-[-32px] left-[-18px] flex-shrink-0 object-cover"
         />
         <div className="p-10 pb-2">
           <CryptocurrenciesRate
