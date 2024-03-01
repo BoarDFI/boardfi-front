@@ -265,15 +265,15 @@ export const mockCryptoCurrenciesRateViews: ICryptoCurrienciesRateView[] = [
   new CryptoCurrienciesRateView(
     1,
     1,
-    "Bitcoin",
-    "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+    "Solana2",
+    "https://assets.coingecko.com/coins/images/4128/standard/solana.png?1696504756",
     "43,808,489,460",
     true
   ),
   new CryptoCurrienciesRateView(
     2,
     2,
-    "Solana",
+    "Solana2",
     "https://assets.coingecko.com/coins/images/4128/standard/solana.png?1696504756",
     "43,808,489,460",
     true
@@ -281,7 +281,7 @@ export const mockCryptoCurrenciesRateViews: ICryptoCurrienciesRateView[] = [
   new CryptoCurrienciesRateView(
     3,
     3,
-    "Bitcoin",
+    "Bitcoin3",
     "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
     "43,808,489,460",
     false
@@ -289,7 +289,7 @@ export const mockCryptoCurrenciesRateViews: ICryptoCurrienciesRateView[] = [
   new CryptoCurrienciesRateView(
     4,
     4,
-    "Solana",
+    "Solana4",
     "https://assets.coingecko.com/coins/images/4128/standard/solana.png?1696504756",
     "43,808,489,460",
     true
@@ -297,7 +297,7 @@ export const mockCryptoCurrenciesRateViews: ICryptoCurrienciesRateView[] = [
   new CryptoCurrienciesRateView(
     5,
     5,
-    "Bitcoin",
+    "Bitcoin5",
     "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
     "43,808,489,460",
     true
@@ -305,7 +305,7 @@ export const mockCryptoCurrenciesRateViews: ICryptoCurrienciesRateView[] = [
   new CryptoCurrienciesRateView(
     6,
     6,
-    "Solana",
+    "Solana6",
     "https://assets.coingecko.com/coins/images/4128/standard/solana.png?1696504756",
     "43,808,489,460",
     false
@@ -313,7 +313,7 @@ export const mockCryptoCurrenciesRateViews: ICryptoCurrienciesRateView[] = [
   new CryptoCurrienciesRateView(
     7,
     7,
-    "Bitcoin",
+    "Bitcoin7",
     "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
     "43,808,489,460",
     false
@@ -321,7 +321,7 @@ export const mockCryptoCurrenciesRateViews: ICryptoCurrienciesRateView[] = [
   new CryptoCurrienciesRateView(
     8,
     8,
-    "Solana",
+    "Solana8",
     "https://assets.coingecko.com/coins/images/4128/standard/solana.png?1696504756",
     "43,808,489,460",
     false
@@ -329,7 +329,7 @@ export const mockCryptoCurrenciesRateViews: ICryptoCurrienciesRateView[] = [
   new CryptoCurrienciesRateView(
     9,
     9,
-    "Bitcoin",
+    "Bitcoin9",
     "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
     "43,808,489,460",
     true
@@ -337,6 +337,86 @@ export const mockCryptoCurrenciesRateViews: ICryptoCurrienciesRateView[] = [
   new CryptoCurrienciesRateView(
     10,
     10,
+    "Solana",
+    "https://assets.coingecko.com/coins/images/4128/standard/solana.png?1696504756",
+    "43,808,489,460",
+    true
+  ),
+  new CryptoCurrienciesRateView(
+    11,
+    11,
+    "Solana2",
+    "https://assets.coingecko.com/coins/images/4128/standard/solana.png?1696504756",
+    "43,808,489,460",
+    true
+  ),
+  new CryptoCurrienciesRateView(
+    12,
+    12,
+    "Solana2",
+    "https://assets.coingecko.com/coins/images/4128/standard/solana.png?1696504756",
+    "43,808,489,460",
+    true
+  ),
+  new CryptoCurrienciesRateView(
+    13,
+    13,
+    "Bitcoin3",
+    "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+    "43,808,489,460",
+    false
+  ),
+  new CryptoCurrienciesRateView(
+    14,
+    14,
+    "Solana4",
+    "https://assets.coingecko.com/coins/images/4128/standard/solana.png?1696504756",
+    "43,808,489,460",
+    true
+  ),
+  new CryptoCurrienciesRateView(
+    15,
+    15,
+    "Bitcoin5",
+    "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+    "43,808,489,460",
+    true
+  ),
+  new CryptoCurrienciesRateView(
+    16,
+    16,
+    "Solana6",
+    "https://assets.coingecko.com/coins/images/4128/standard/solana.png?1696504756",
+    "43,808,489,460",
+    false
+  ),
+  new CryptoCurrienciesRateView(
+    17,
+    17,
+    "Bitcoin7",
+    "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+    "43,808,489,460",
+    false
+  ),
+  new CryptoCurrienciesRateView(
+    18,
+    18,
+    "Solana8",
+    "https://assets.coingecko.com/coins/images/4128/standard/solana.png?1696504756",
+    "43,808,489,460",
+    false
+  ),
+  new CryptoCurrienciesRateView(
+    19,
+    19,
+    "Bitcoin9",
+    "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+    "43,808,489,460",
+    true
+  ),
+  new CryptoCurrienciesRateView(
+    20,
+    20,
     "Solana",
     "https://assets.coingecko.com/coins/images/4128/standard/solana.png?1696504756",
     "43,808,489,460",

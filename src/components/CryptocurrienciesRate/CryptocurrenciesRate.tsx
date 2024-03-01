@@ -4,15 +4,17 @@ import CryptocurrenciesRateRow from "./CryptocurrenciesRateRow";
 const CryptocurrenciesRate = ({
   cryptoCurrenciesRateViews,
   showCodicon,
+  showBestResult,
 }: {
   cryptoCurrenciesRateViews: ICryptoCurrienciesRateView[];
   showCodicon: boolean;
+  showBestResult: boolean;
 }) => {
   const halfData = Math.ceil(cryptoCurrenciesRateViews.length / 2);
 
   return (
-    <div className="grid grid-cols-2 gap-4 text-dirty-white">
-      <div className="border-r border-primary">
+    <div className="grid max-sm:grid-cols-1  grid-cols-2 md:gap-4 text-dirty-white">
+      <div className="md:border-r md:border-primary">
         {cryptoCurrenciesRateViews
           .slice(0, halfData)
           .map((cryptoCurrenciesRateView, index) => (
@@ -20,9 +22,9 @@ const CryptocurrenciesRate = ({
               key={index}
               cryptoCurrienciesRateView={cryptoCurrenciesRateView}
               index={index}
-              showCup={true}
+              showCup={showBestResult}
               showCodicon={showCodicon}
-              className="mr-5"
+              className="md:mr-3"
             />
           ))}
       </div>

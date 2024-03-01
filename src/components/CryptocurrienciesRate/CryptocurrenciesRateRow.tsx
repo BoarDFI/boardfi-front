@@ -3,15 +3,7 @@ import CodiconFoldUp from "@/assets/icons/codicon_fold-up.svg?react";
 import SolarCupBold from "@/assets/icons/solar_cup-bold.svg?react";
 import ICryptoCurrienciesRateView from "@/constants/interfaces/CryptoCurrenciesRateView.interface";
 
-interface CryptocurrenciesRateRowProps {
-  index: number;
-  cryptoCurrienciesRateView: ICryptoCurrienciesRateView;
-  showCup: boolean;
-  showCodicon: boolean;
-  className: string;
-}
-
-const CryptocurrenciesRateRow: React.FC<CryptocurrenciesRateRowProps> = ({
+const CryptocurrenciesRateRow = ({
   index,
   cryptoCurrienciesRateView,
   showCup,
@@ -24,15 +16,15 @@ const CryptocurrenciesRateRow: React.FC<CryptocurrenciesRateRowProps> = ({
   showCodicon: boolean;
   className: string;
 }) => {
-  const { name, icon, codicon, value } = cryptoCurrienciesRateView;
+  const { name, icon, codicon, value, id } = cryptoCurrienciesRateView;
   return (
     <div key={index} className={`mb-6 flex justify-between ${className}`}>
       <div className="flex items-center">
-        <span className="mr-4">#{index + 1}</span>
-        <div className="relative">
+        <span className="text-xs mr-2">#{id}</span>
+        <div className="relative flex-shrink-0">
           <img
             src={icon}
-            className="w-6 h-6 rounded-sm overflow-hidden mr-3"
+            className="w-6 h-6 rounded-sm overflow-hidden mr-1"
             alt={`${name} icon`}
           />
           {index === 0 && showCup && (
@@ -40,11 +32,11 @@ const CryptocurrenciesRateRow: React.FC<CryptocurrenciesRateRowProps> = ({
           )}
         </div>
 
-        <span className="mr-2">{name}</span>
+        <span className="text-xs mr-1 flex-shrink">{name}</span>
         {showCodicon && codicon && <CodiconFoldUp />}
         {showCodicon && !codicon && <CodiconFoldDown />}
-      </div>
-      <span className="text-right">${value}</span>
+           
+      </div> <div className="items-center"><span className="text-xs  text-right">${value}</span> </div>
     </div>
   );
 };

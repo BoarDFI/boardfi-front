@@ -11,11 +11,10 @@ module.exports = {
   theme: {
     screens: {
       "lg": "1280px",
-      "md": "1024px",
+      "md": "1064px",
       "sm": "768px",
     },
     container: {
-      maxWidth: 'none',
       center: true,
       padding: "2rem",
       screens: {
