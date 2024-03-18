@@ -6,7 +6,7 @@ import { CryptoCurrenciesRateViewType } from "@/types/CryptoCurrenciesRate.type"
 import { IconEnum } from "@/enums";
 import { mockCryptoCurrenciesRateViews } from "@/constants";
 
-const CryptocurrenciesRateCards: React.FC = () => {
+const CryptocurrenciesRateCards = () => {
   const [recentlyAdded, setRecentlyAdded] = useState<
     CryptoCurrenciesRateViewType[]
   >([]);

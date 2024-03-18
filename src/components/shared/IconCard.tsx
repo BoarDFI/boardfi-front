@@ -2,14 +2,11 @@ import { IconEnum } from "@/enums";
 import FlameIcon from "@/assets/icons/flame-icon.svg?react";
 import HourglassIcon from "@/assets/icons/hourglass.svg?react";
 
-const IconCard = ({
-  type,
-  className,
-  ...restProps
-}: {
+type Props = {
   type: string;
-  className: string;
-}) => {
+  className?: string;
+};
+const IconCard = ({ type, className, ...restProps }: Props) => {
   const { FLAME, HOURGLASS } = IconEnum;
   switch (type) {
     case FLAME:
