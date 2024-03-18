@@ -25,7 +25,6 @@ const CryptocurrenciesRateCards: React.FC = () => {
             icon: IconEnum.FLAME,
             cryptoCurrenciesRateViews: recentlyAdded,
             enableBestResult: true,
-            showCodicon: true,
           }}
           showBestResult={true}
         ></Card>
@@ -38,7 +37,6 @@ const CryptocurrenciesRateCards: React.FC = () => {
             icon: IconEnum.HOURGLASS,
             cryptoCurrenciesRateViews: recentlyAdded,
             enableBestResult: true,
-            showCodicon: true,
           }}
           showBestResult={true}
         ></Card>

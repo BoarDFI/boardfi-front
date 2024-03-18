@@ -3,7 +3,6 @@ import { CryptoCurrenciesRateViewType } from "@/types/CryptoCurrenciesRate.type.
 
 type Props = {
   cryptoCurrenciesRateViews: CryptoCurrenciesRateViewType[];
-  showCodicon: boolean;
   showBestResult: boolean;
 };
 const CryptocurrenciesRate = ({

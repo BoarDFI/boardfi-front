@@ -7,28 +7,28 @@ import { CryptoCurrenciesRateCardViewType } from "@/types/CryptoCurrenciesRate.t
 
 import IconCard from "./IconCard";
 
-const Card = ({
-  cryptoCurrenciesRateCardView,
-  showBestResult,
-}: {
+type Props = {
   cryptoCurrenciesRateCardView: CryptoCurrenciesRateCardViewType;
   showBestResult: boolean;
-}) => {
-  const { icon } = cryptoCurrenciesRateCardView;
+};
+
+const Card = ({ cryptoCurrenciesRateCardView, showBestResult }: Props) => {
+  const { icon, title, href, cryptoCurrenciesRateViews } =
+    cryptoCurrenciesRateCardView;
 
   return (
     <div className="">
       <div className="grid grid-cols-2 grid-flow-col auto-cols-max gap-4">
         <div className="row-start flex col-span-3">
           <h2 className="mx-10 text-2xl mb-2 flex items-center font-bold text-paragraph">
-            {cryptoCurrenciesRateCardView.title}
+            {title}
             <InfoIcon className="ml-2 cursor-pointer"></InfoIcon>
           </h2>
         </div>
         <div className="row-end col-span-1 flex justify-end items-center">
           <h3 className="flex items-center">
             See More
-            <Link to={cryptoCurrenciesRateCardView.href}>
+            <Link to={href}>
               <NextIcon className="ml-1 cursor-pointer"></NextIcon>
             </Link>
           </h3>
@@ -41,11 +41,8 @@ const Card = ({
         />
         <div className="p-4 pt-8 pb-2">
           <CryptocurrenciesRate
-            cryptoCurrenciesRateViews={
-              cryptoCurrenciesRateCardView.cryptoCurrenciesRateViews
-            }
+            cryptoCurrenciesRateViews={cryptoCurrenciesRateViews}
             showBestResult={showBestResult}
-            showCodicon={cryptoCurrenciesRateCardView.showCodicon}
           />
         </div>
       </div>

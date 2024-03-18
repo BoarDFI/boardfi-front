@@ -4,7 +4,6 @@ export type CryptoCurrenciesRateCardViewType = {
   icon: string;
   cryptoCurrenciesRateViews: CryptoCurrenciesRateViewType[];
   enableBestResult: boolean;
-  showCodicon: boolean;
 };
 
 export type CryptoCurrenciesRateViewType = {
