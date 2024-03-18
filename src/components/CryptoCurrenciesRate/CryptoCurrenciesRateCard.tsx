@@ -15,6 +15,7 @@ const CryptocurrenciesRateCards = () => {
 
   const renderCard = (
     title: string,
+    href: string,
     icon: IconEnum,
     cryptoCurrenciesRateViews: CryptoCurrenciesRateViewType[]
   ) => (
@@ -24,10 +25,9 @@ const CryptocurrenciesRateCards = () => {
       <Card
         cryptoCurrenciesRateCardView={{
           title,
-          href: "",
+          href,
           icon,
-          cryptoCurrenciesRateViews: cryptoCurrenciesRateViews,
-          enableBestResult: true,
+          cryptoCurrenciesRateViews,
         }}
         showBestResult={true}
       />
@@ -36,8 +36,8 @@ const CryptocurrenciesRateCards = () => {
 
   return (
     <div className="grid grid-cols-2 max-md:grid-cols-1 gap-2 mb-20">
-      {renderCard("Hot Cryptos", IconEnum.FLAME, recentlyAdded)}
-      {renderCard("Hot Cryptos", IconEnum.HOURGLASS, recentlyAdded)}
+      {renderCard("Hot Cryptos", "/", IconEnum.FLAME, recentlyAdded)}
+      {renderCard("Hot Cryptos", "/", IconEnum.HOURGLASS, recentlyAdded)}
     </div>
   );
 };
