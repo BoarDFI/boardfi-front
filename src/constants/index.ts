@@ -1,4 +1,5 @@
 import { CryptoTable } from "@/components/CryptoTable/Columns";
+import { CryptoCurrenciesRateViewType } from "@/types/CryptoCurrenciesRate.type.ts";
 
 export const routes = [
   {
@@ -257,4 +258,87 @@ export const mockTableHeaders = [
   "Market Cap",
   "Social Score",
   "Verified",
+];
+
+export const mockCryptoCurrenciesRateViews: CryptoCurrenciesRateViewType[] = [
+  {
+    id: 1,
+    step: 1,
+    name: "Solana2",
+    icon: "https://assets.coingecko.com/coins/images/4128/standard/solana.png?1696504756",
+    value: "43,808,489,460",
+    codicon: true,
+  },
+  {
+    id: 2,
+    step: 2,
+    name: "Solana2",
+    icon: "https://assets.coingecko.com/coins/images/4128/standard/solana.png?1696504756",
+    value: "43,808,489,460",
+    codicon: true,
+  },
+  {
+    id: 3,
+    step: 3,
+    name: "Bitcoin3",
+    icon: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+    value: "43,808,489,460",
+    codicon: false,
+  },
+  {
+    id: 4,
+    step: 4,
+    name: "Bitcoin3",
+    icon: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+    value: "43,808,489,460",
+    codicon: false,
+  },
+  {
+    id: 5,
+    step: 5,
+    name: "Bitcoin3",
+    icon: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+    value: "43,808,489,460",
+    codicon: false,
+  },
+  {
+    id: 6,
+    step: 6,
+    name: "Bitcoin3",
+    icon: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+    value: "43,808,489,460",
+    codicon: false,
+  },
+  {
+    id: 7,
+    step: 7,
+    name: "Bitcoin3",
+    icon: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+    value: "43,808,489,460",
+    codicon: false,
+  },
+  {
+    id: 8,
+    step: 8,
+    name: "Bitcoin3",
+    icon: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+    value: "43,808,489,460",
+    codicon: false,
+  },
+  {
+    id: 9,
+    step: 9,
+    name: "Bitcoin3",
+    icon: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+    value: "43,808,489,460",
+    codicon: true,
+  },
+  {
+    id: 10,
+    step: 10,
+    name: "Bitcoin3",
+    icon: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+    value: "43,808,489,460",
+    codicon: false,
+  },
 ];
