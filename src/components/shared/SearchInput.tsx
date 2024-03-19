@@ -1,7 +1,7 @@
 import { Input } from "@/components/ui/input.tsx";
 import { Button } from "@/components/ui/button.tsx";
 import { useEffect, useRef } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 import SearchIcon from "@/assets/icons/search-icon.svg?react";
 import XIcon from "@/assets/icons/x-icon.svg?react";
 import { solana } from "@/assets/images";
