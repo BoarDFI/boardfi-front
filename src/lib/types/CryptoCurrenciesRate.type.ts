@@ -1,6 +1,7 @@
 export type CryptoCurrenciesRateCardViewType = {
   title: string;
   href: string;
+  tooltip: string;
   icon: string;
   cryptoCurrenciesRateViews: CryptoCurrenciesRateViewType[];
 };

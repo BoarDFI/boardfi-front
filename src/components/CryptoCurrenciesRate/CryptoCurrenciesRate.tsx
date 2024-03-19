@@ -1,5 +1,5 @@
 import CryptocurrenciesRateRow from "./CryptoCurrenciesRow";
-import { CryptoCurrenciesRateViewType } from "@/types/CryptoCurrenciesRate.type.ts";
+import { CryptoCurrenciesRateViewType } from "@/lib/types/CryptoCurrenciesRate.type";
 
 type Props = {
   cryptoCurrenciesRateViews: CryptoCurrenciesRateViewType[];

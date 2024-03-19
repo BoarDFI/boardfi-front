@@ -3,9 +3,15 @@ import NextIcon from "@/assets/icons/next-icon.svg?react";
 
 import CryptocurrenciesRate from "../CryptoCurrenciesRate/CryptoCurrenciesRate";
 import { Link } from "react-router-dom";
-import { CryptoCurrenciesRateCardViewType } from "@/types/CryptoCurrenciesRate.type";
+import { CryptoCurrenciesRateCardViewType } from "@/lib/types/CryptoCurrenciesRate.type";
 
 import IconCard from "./IconCard";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "../ui/tooltip";
 
 type Props = {
   cryptoCurrenciesRateCardView: CryptoCurrenciesRateCardViewType;
@@ -13,7 +19,7 @@ type Props = {
 };
 
 const Card = ({ cryptoCurrenciesRateCardView, showBestResult }: Props) => {
-  const { icon, title, href, cryptoCurrenciesRateViews } =
+  const { icon, title, href, cryptoCurrenciesRateViews, tooltip } =
     cryptoCurrenciesRateCardView;
 
   return (
@@ -22,7 +28,16 @@ const Card = ({ cryptoCurrenciesRateCardView, showBestResult }: Props) => {
         <div className="row-start flex col-span-3">
           <h2 className="mx-10 text-2xl mb-2 flex items-center font-bold text-paragraph">
             {title}
-            <InfoIcon className="ml-2 cursor-pointer"></InfoIcon>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>
+                  <InfoIcon className="ml-2 cursor-pointer" />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{tooltip}</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           </h2>
         </div>
         <div className="row-end col-span-1 flex justify-end items-center">

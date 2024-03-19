@@ -1,4 +1,4 @@
-import { IconEnum } from "@/enums";
+import { IconEnum } from "@/lib/enums";
 import FlameIcon from "@/assets/icons/flame-icon.svg?react";
 import HourglassIcon from "@/assets/icons/hourglass.svg?react";
 

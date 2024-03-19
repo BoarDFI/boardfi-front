@@ -1,7 +1,7 @@
 import CodiconFoldDown from "@/assets/icons/codicon_fold-down.svg?react";
 import CodiconFoldUp from "@/assets/icons/codicon_fold-up.svg?react";
 import SolarCupBold from "@/assets/icons/solar_cup-bold.svg?react";
-import { CryptoCurrenciesRateViewType } from "@/types/CryptoCurrenciesRate.type.ts";
+import { CryptoCurrenciesRateViewType } from "@/lib/types/CryptoCurrenciesRate.type";
 
 type Props = {
   index: number;

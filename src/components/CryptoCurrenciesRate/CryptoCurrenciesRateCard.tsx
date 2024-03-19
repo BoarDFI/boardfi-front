@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import Card from "@/components/shared/Card";
-import { CryptoCurrenciesRateViewType } from "@/types/CryptoCurrenciesRate.type";
-import { IconEnum } from "@/enums";
-import { mockCryptoCurrenciesRateViews } from "@/constants";
+import { CryptoCurrenciesRateViewType } from "@/lib/types/CryptoCurrenciesRate.type";
+import { IconEnum } from "@/lib/enums";
+import { mockCryptoCurrenciesRateViews } from "@/lib/constants";
 
 const CryptocurrenciesRateCards = () => {
   const [recentlyAdded, setRecentlyAdded] = useState<
@@ -17,7 +17,8 @@ const CryptocurrenciesRateCards = () => {
     title: string,
     href: string,
     icon: IconEnum,
-    cryptoCurrenciesRateViews: CryptoCurrenciesRateViewType[]
+    cryptoCurrenciesRateViews: CryptoCurrenciesRateViewType[],
+    tooltip: string
   ) => (
     <div
       className={`row-span-1 ${icon === IconEnum.FLAME ? "mr-5 max-md:mr-0" : "ml-5 max-md:ml-0 max-md:mt-14"}`}
@@ -27,6 +28,7 @@ const CryptocurrenciesRateCards = () => {
           title,
           href,
           icon,
+          tooltip,
           cryptoCurrenciesRateViews,
         }}
         showBestResult={true}
@@ -36,8 +38,20 @@ const CryptocurrenciesRateCards = () => {
 
   return (
     <div className="grid grid-cols-2 max-md:grid-cols-1 gap-2 mb-20">
-      {renderCard("Hot Cryptos", "/", IconEnum.FLAME, recentlyAdded)}
-      {renderCard("Hot Cryptos", "/", IconEnum.HOURGLASS, recentlyAdded)}
+      {renderCard(
+        "Hot Cryptos",
+        "/",
+        IconEnum.FLAME,
+        recentlyAdded,
+        "Top visited pairs in last 24 hours"
+      )}
+      {renderCard(
+        "Recently Added",
+        "/",
+        IconEnum.HOURGLASS,
+        recentlyAdded,
+        "Recently added cryptos in last month"
+      )}
     </div>
   );
 };

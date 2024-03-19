@@ -1,7 +1,7 @@
 import CryptocurrenciesRateCards from "@/components/CryptoCurrenciesRate/CryptoCurrenciesRateCard";
 import { generateColumns } from "@/components/CryptoTable/Columns";
 import { DataTable } from "@/components/CryptoTable/Table";
-import { mockCryptos } from "@/constants";
+import { mockCryptos } from "@/lib/constants";
 
 function HomePage() {
   return (

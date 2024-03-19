@@ -1,5 +1,5 @@
 import { CryptoTable } from "@/components/CryptoTable/Columns";
-import { CryptoCurrenciesRateViewType } from "@/types/CryptoCurrenciesRate.type.ts";
+import { CryptoCurrenciesRateViewType } from "@/lib/types/CryptoCurrenciesRate.type";
 
 export const routes = [
   {
