@@ -4,6 +4,29 @@ import { CryptoCurrenciesRateViewType } from "@/lib/types/CryptoCurrenciesRate.t
 import { IconEnum } from "@/lib/enums";
 import { mockCryptoCurrenciesRateViews } from "@/lib/constants";
 
+const renderCard = (
+  title: string,
+  href: string,
+  icon: IconEnum,
+  cryptoCurrenciesRateViews: CryptoCurrenciesRateViewType[],
+  tooltip: string
+) => (
+  <div
+    className={`row-span-1 ${icon === IconEnum.FLAME ? "mr-5 max-md:mr-0" : "ml-5 max-md:ml-0 max-md:mt-14"}`}
+  >
+    <Card
+      cryptoCurrenciesRateCardView={{
+        title,
+        href,
+        icon,
+        tooltip,
+        cryptoCurrenciesRateViews,
+      }}
+      showBestResult={true}
+    />
+  </div>
+);
+
 const CryptocurrenciesRateCards = () => {
   const [recentlyAdded, setRecentlyAdded] = useState<
     CryptoCurrenciesRateViewType[]
@@ -12,29 +35,6 @@ const CryptocurrenciesRateCards = () => {
   useEffect(() => {
     setRecentlyAdded(mockCryptoCurrenciesRateViews);
   }, []);
-
-  const renderCard = (
-    title: string,
-    href: string,
-    icon: IconEnum,
-    cryptoCurrenciesRateViews: CryptoCurrenciesRateViewType[],
-    tooltip: string
-  ) => (
-    <div
-      className={`row-span-1 ${icon === IconEnum.FLAME ? "mr-5 max-md:mr-0" : "ml-5 max-md:ml-0 max-md:mt-14"}`}
-    >
-      <Card
-        cryptoCurrenciesRateCardView={{
-          title,
-          href,
-          icon,
-          tooltip,
-          cryptoCurrenciesRateViews,
-        }}
-        showBestResult={true}
-      />
-    </div>
-  );
 
   return (
     <div className="grid grid-cols-2 max-md:grid-cols-1 gap-2 mb-20">

@@ -1,29 +1,27 @@
-import CryptocurrenciesRateRow from "./CryptoCurrenciesRow";
 import { CryptoCurrenciesRateViewType } from "@/lib/types/CryptoCurrenciesRate.type";
+import CryptocurrenciesRateRow from "./CryptoCurrenciesRow";
 
 type Props = {
   cryptoCurrenciesRateViews: CryptoCurrenciesRateViewType[];
   showBestResult: boolean;
 };
+
+const renderRows = (views: CryptoCurrenciesRateViewType[], showCup: boolean) =>
+  views.map((view, index) => (
+    <CryptocurrenciesRateRow
+      key={view.id}
+      cryptoCurrenciesRateView={view}
+      index={index}
+      showCup={showCup}
+      className={showCup ? "md:mr-3" : ""}
+    />
+  ));
+
 const CryptocurrenciesRate = ({
   cryptoCurrenciesRateViews,
   showBestResult,
 }: Props) => {
   const splitIndex = Math.ceil(cryptoCurrenciesRateViews.length / 2);
-
-  const renderRows = (
-    views: CryptoCurrenciesRateViewType[],
-    showCup: boolean
-  ) =>
-    views.map((view, index) => (
-      <CryptocurrenciesRateRow
-        key={view.id}
-        cryptoCurrenciesRateView={view}
-        index={index}
-        showCup={showCup}
-        className={showCup ? "md:mr-3" : ""}
-      />
-    ));
 
   return (
     <div className="grid max-sm:grid-cols-1 grid-cols-2 md:gap-4 text-dirty-white">
